@@ -338,17 +338,18 @@
     align-items: center;
   }
   .about-image {
-    background: var(--cream-warm);
-    aspect-ratio: 4/5;
+    aspect-ratio: 3/4;
     border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-style: italic;
-    color: var(--brown-soft);
-    font-size: 14px;
-    text-align: center;
-    padding: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(45, 27, 15, 0.08);
+  }
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
   }
   .about h2 { font-size: 38px; }
   .about .quote {
@@ -450,6 +451,38 @@
     opacity: 0.75;
   }
 
+  .direct-contact {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--brown-warm);
+    text-align: center;
+  }
+  .direct-contact-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--terracotta-soft);
+    margin-bottom: 12px;
+  }
+  .direct-contact-line {
+    font-size: 17px;
+    color: var(--cream);
+    font-style: italic;
+  }
+  .direct-contact-line a {
+    color: var(--cream);
+    border-bottom: 1px solid var(--terracotta-soft);
+    transition: all 0.2s ease;
+  }
+  .direct-contact-line a:hover {
+    color: var(--terracotta-soft);
+  }
+  .direct-contact-line .sep {
+    color: var(--terracotta-soft);
+    margin: 0 14px;
+    font-style: normal;
+  }
+
   /* ===== Footer ===== */
   footer {
     background: var(--cream-light);
@@ -467,7 +500,25 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--brown-soft);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+  }
+  footer .contact-info {
+    font-size: 16px;
+    color: var(--brown-warm);
+    margin-bottom: 20px;
+  }
+  footer .contact-info a {
+    color: var(--brown-deep);
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+  footer .contact-info a:hover {
+    color: var(--terracotta);
+    border-bottom-color: var(--terracotta);
+  }
+  footer .contact-info .sep {
+    color: var(--terracotta);
+    margin: 0 12px;
   }
   footer .links {
     font-size: 14px;
@@ -634,7 +685,7 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-image">
-        [Photo of Coach Jess]<br><br><em>Replace this box<br>with your photo</em>
+        <img src="jess.jpg" alt="Coach Jess">
       </div>
       <div>
         <div class="eyebrow">About Coach Jess</div>
@@ -658,20 +709,14 @@
 
     <!--
       ============================================================
-      EMAIL FORM SETUP
+      EMAIL FORM - LIVE
       ============================================================
-      This form is set up to work with FORMSPREE (free tier available).
-
-      To make it live:
-      1. Go to formspree.io and create a free account
-      2. Create a new form, copy your endpoint URL (looks like https://formspree.io/f/xxxxxxxx)
-      3. Replace YOUR_FORMSPREE_ID below with your actual form ID
-      4. That's it. Submissions will come to your email.
-
-      Alternative services that work the same way: tally.so, basin.com, getform.io
+      Form is wired to your Formspree endpoint: xykqzybp
+      Submissions go to coachjessparenting@gmail.com
+      Dashboard: https://formspree.io/forms/xykqzybp/submissions
       ============================================================
     -->
-    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+    <form action="https://formspree.io/f/xykqzybp" method="POST">
       <input type="text" name="name" placeholder="Your name" required>
       <input type="email" name="email" placeholder="Your email" required>
 
@@ -688,6 +733,15 @@
       <button type="submit">Add Me to the List</button>
       <div class="privacy">Your email stays with me. No spam, no selling, ever.</div>
     </form>
+
+    <div class="direct-contact">
+      <div class="direct-contact-label">Or just talk to me directly</div>
+      <div class="direct-contact-line">
+        <a href="mailto:coachjessparenting@gmail.com">coachjessparenting@gmail.com</a>
+        <span class="sep">·</span>
+        <a href="tel:+15033329572">(503) 332-9572</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -696,6 +750,11 @@
   <div class="container">
     <div class="brand">Coach <span class="jess">Jess</span></div>
     <div class="tagline">A Christian Parenting Practice</div>
+    <div class="contact-info">
+      <a href="mailto:coachjessparenting@gmail.com">coachjessparenting@gmail.com</a>
+      <span class="sep">·</span>
+      <a href="tel:+15033329572">(503) 332-9572</a>
+    </div>
     <div class="links">
       <a href="#paths">Work With Me</a> ·
       <a href="#about">About</a> ·
